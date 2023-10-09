@@ -24,6 +24,7 @@ func fetch(url string) {
 		fmt.Fprintf(os.Stderr, "fetch: reading %s: %v\n", url, err)
 		os.Exit(1)
 	}
+	fmt.Fprintf(os.Stdout, "Status Code: %s\n", resp.Status)
 }
 
 func addHttpPrefixIfNotProvided(url *string) {
