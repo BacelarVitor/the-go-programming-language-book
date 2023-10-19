@@ -72,12 +72,6 @@ func writeFile(writableContent string) {
 		return
 	}
 
-	_, err = io.WriteString(file, writableContent)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
 	err = file.Sync()
 	if err != nil {
 		fmt.Println(err)

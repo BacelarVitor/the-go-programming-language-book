@@ -1,4 +1,26 @@
 
+###### 19 Oct 23 15:41 -03 ######
+
+time	 bytes	 url
+
+0.52s    9148    https://portal.novafutura.com.br/#/cadastro/entrar
+1.02s    1965    https://a1.preview.jvmanagement.in/
+1.02s    1965    https://preview.jvmanagement.in/
+1.02s      19    https://hmo.jvmanagement.in/pages/login
+
+1.02s	 elapsed
+
+###### 19 Oct 23 15:41 -03 ######
+
+time	 bytes	 url
+
+0.33s    9148    https://portal.novafutura.com.br/#/cadastro/entrar
+3.40s      19    https://hmo.jvmanagement.in/pages/login
+3.79s    1965    https://preview.jvmanagement.in/
+4.99s    1965    https://a1.preview.jvmanagement.in/
+
+4.99s	 elapsed
+
 ###### 19 Oct 23 13:50 -03 ######
 
 time	 bytes	 url
