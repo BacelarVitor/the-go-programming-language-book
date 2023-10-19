@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io"
 	"net/http"
@@ -10,16 +11,18 @@ import (
 )
 
 func fetchall(urls []string) {
+	flag.CommandLine.Set("align", "10")
 	start := time.Now()
 	ch := make(chan string)
 	fmt.Printf("\n###### %s ######\n\n", start.Format(time.RFC822))
+	fmt.Println("time\t bytes\t url\n")
 	for _, url := range urls {
 		go fetchGo(url, ch)
 	}
 	for range urls {
 		fmt.Println(<-ch)
 	}
-	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
+	fmt.Printf("\n%.2fs\t elapsed\n", time.Since(start).Seconds())
 }
 
 func fetchGo(url string, ch chan<- string) {
@@ -39,7 +42,7 @@ func fetchGo(url string, ch chan<- string) {
 	}
 
 	secs := time.Since(start).Seconds()
-	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
+	ch <- fmt.Sprintf("%.2fs %7d    %s", secs, nbytes, url)
 
 }
 
