@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -39,4 +41,16 @@ func fetchGo(url string, ch chan<- string) {
 	secs := time.Since(start).Seconds()
 	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
 
+}
+
+func getUrls() []string {
+	urls := os.Args[1:]
+	fileInfo, err := os.Stdin.Stat()
+	if err == nil && fileInfo.Size() > 0 {
+		scan := bufio.NewScanner(os.Stdin)
+		for scan.Scan() {
+			urls = append(urls, scan.Text())
+		}
+	}
+	return urls
 }
