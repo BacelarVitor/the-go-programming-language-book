@@ -12,8 +12,8 @@ import (
 func fetchall(urls []string) {
 	start := time.Now()
 	ch := make(chan string)
+	fmt.Printf("\n###### %s ######\n\n", start.Format(time.RFC822))
 	for _, url := range urls {
-		fmt.Printf("featching %s\n", url)
 		go fetchGo(url, ch)
 	}
 	for range urls {
